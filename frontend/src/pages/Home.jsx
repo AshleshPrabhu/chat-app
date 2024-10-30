@@ -1,8 +1,22 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import Login from './Login'
+import Signup from './Signup'
 function Home() {
   return (
-    <div>Home</div>
+    <div className='w-full min-h-screen flex justify-center items-center bg-black' >
+      <div className='rounded-3xl w-[40%]  bg-white'>
+      <Tabs defaultValue="login" className="w-full h-full">
+        <TabsList className='w-full h-14'>
+          <TabsTrigger value="login" className='w-[45%] h-10 rounded-xl'>Login</TabsTrigger>
+          <TabsTrigger value="signup" className='w-[45%] h-10 rounded-xl'>Signup</TabsTrigger>
+        </TabsList>
+        <TabsContent value="login"><Login/></TabsContent>
+        <TabsContent value="signup"><Signup/></TabsContent>
+      </Tabs>
+
+      </div>
+    </div>
   )
 }
 

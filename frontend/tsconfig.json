@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["./src/*"]
+      },
+      "allowJs": true   // Allow JavaScript files
+    },
+    "include": ["src/**/*"]  // Include all files in src, regardless of extension
+  }
+  
