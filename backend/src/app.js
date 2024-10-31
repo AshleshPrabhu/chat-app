@@ -4,7 +4,7 @@ import userRouter from './routes/user.routes.js';
 import { notFound,errorHandler } from './middlewares/error.middleware.js';
 const app = express();
 app.use(cors({
-    origin:process.env.CORS_ORIGIN,
+    origin:'*',
     credentials:true,
 }))
 app.use(express.json({limit:"16kb"}))   

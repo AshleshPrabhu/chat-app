@@ -15,7 +15,6 @@ const userSchema = mongoose.Schema({
     },
     pic:{
         type:String,
-        required:true,
         default:"https://avatar.iran.liara.run/public/17"
     }
 },{timestamps:true})
