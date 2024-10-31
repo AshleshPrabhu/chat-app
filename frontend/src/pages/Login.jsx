@@ -33,6 +33,7 @@ function Login() {
                 toast.error("failed to login")
             }else{
                 toast.success("login success")
+                navigate('/chats')
                 setEmail(null)
                 setPassword(null)
             }

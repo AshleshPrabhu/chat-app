@@ -1,4 +1,4 @@
-import {User} from '../models/user.model.js'
+import User from '../models/user.model.js'
 import generateToken from '../utils/generateToken.js'
 
 const loginUser =async(req,res)=>{
@@ -31,7 +31,7 @@ const loginUser =async(req,res)=>{
         }
 
     } catch (error) {
-        console.log("registerUserError : ",error)
+        console.log("LoginUser : ",error)
         return res.status(400).json({
             message: error?.message,
             success: false
@@ -98,8 +98,38 @@ const registerUser  = async (req, res) => {
         });
     }
 }
+//api/v1/user?search=ash
+const getAllUser = async (req, res) => {
+    try {
+    const keyword = req.query.search
+        ? {
+            $or: [
+            { name: { $regex: req.query.search, $options: "i" } },
+            { email: { $regex: req.query.search, $options: "i" } },
+            ],
+        }
+        : {};
 
+    // Await the execution of the query
+    const users = await User.find(keyword).find({_id:{$ne:req.user._id}});
+
+    if (!users.length) {
+        throw new Error("No users found");
+    }
+
+    return res.status(200).json({
+        message: "Users fetched successfully",
+        users,
+        success: true,
+    });
+    } catch (error) {
+    console.log("GetAllUserError:", error);
+    return res.status(400).json({ message: error?.message, success: false });
+    }
+};
+  
 export {
     loginUser,
-    registerUser
+    registerUser,
+    getAllUser
 }

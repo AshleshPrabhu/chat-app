@@ -25,5 +25,5 @@ const chatSchema = mongoose.Schema({
         ref:"User"
     }
 },{timestamps:true})
-
-export default Chat = mongoose.model("Chat",chatSchema)
+const Chat = mongoose.model("Chat",chatSchema)
+export default Chat

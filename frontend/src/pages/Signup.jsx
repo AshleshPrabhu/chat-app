@@ -39,6 +39,7 @@ function Signup() {
                 toast.error("failed to signup")
             }else{
                 toast.success("signup success")
+                localStorage.setItem("userInfo",JSON.stringify(response?.user))
                 setConfirmPassword(null)
                 setName(null)
                 setEmail(null)
