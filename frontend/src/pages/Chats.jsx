@@ -7,7 +7,7 @@ import React from 'react'
 function Chats() {
   const {user} = chatState()
   return (
-    <div className='min-h-screen w-full'>
+    <div className='min-h-screen w-full bg-black'>
       <div>
         {user&&<SideBar/>}
       </div>

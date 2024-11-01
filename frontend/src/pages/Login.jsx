@@ -35,6 +35,7 @@ function Login() {
                 toast.error("failed to login")
             }else{
                 toast.success("login success")
+                setLoading(false)
                 localStorage.setItem("userInfo",JSON.stringify(data?.user))
                 navigate('/chats')
                 setEmail(null)

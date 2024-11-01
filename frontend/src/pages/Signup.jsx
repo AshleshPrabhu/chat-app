@@ -40,6 +40,7 @@ function Signup() {
             }else{
                 toast.success("signup success")
                 localStorage.setItem("userInfo",JSON.stringify(response?.user))
+                setLoading(false)
                 setConfirmPassword(null)
                 setName(null)
                 setEmail(null)
