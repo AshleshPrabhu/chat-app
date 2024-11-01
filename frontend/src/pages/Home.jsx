@@ -1,8 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Login from './Login'
 import Signup from './Signup'
+import { useNavigate } from 'react-router-dom'
 function Home() {
+  const navigate = useNavigate()
+  const[user,setUser]=useState()
+    // useEffect(()=>{
+    //     // const userInfo=JSON.parse(localStorage.getItem('userInfo'))
+    //     // setUser(userInfo)
+    //     if(userInfo){
+    //         navigate('/chats')
+    //     }
+    // },[navigate])
   return (
     <div className='w-full min-h-screen flex justify-center items-center bg-black' >
       <div className='rounded-3xl w-[40%]  bg-white'>

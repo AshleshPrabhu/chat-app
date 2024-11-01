@@ -29,10 +29,13 @@ function Login() {
                 },
                 body: JSON.stringify({  email, password}), 
             });
+            // console.log("res", await response.json())
+            const data = await response.json()
             if(!response.ok){
                 toast.error("failed to login")
             }else{
                 toast.success("login success")
+                localStorage.setItem("userInfo",JSON.stringify(data?.user))
                 navigate('/chats')
                 setEmail(null)
                 setPassword(null)

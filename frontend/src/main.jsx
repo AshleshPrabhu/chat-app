@@ -5,6 +5,7 @@ import App from './App.jsx'
 import {  Route, RouterProvider, createBrowserRouter, createRoutesFromElements} from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import Chats from './pages/Chats.jsx'
+import ChatProvider from './Context/ChatProvider.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App/>}>
@@ -16,8 +17,8 @@ const router = createBrowserRouter(
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-      <RouterProvider
-        router={router}
-      />
-  </StrictMode>,
+    <ChatProvider>
+      <RouterProvider router={router} />
+    </ChatProvider>
+  </StrictMode>
 )

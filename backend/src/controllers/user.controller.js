@@ -22,8 +22,8 @@ const loginUser =async(req,res)=>{
                 message:'user logged in successfully',
                 user:{
                     _id:user?._id,
-                    name:user?._name,
-                    email:user?._email,
+                    name:user?.name,
+                    email:user?.email,
                     token:generateToken(user?._id)
                 },
                 success:true
