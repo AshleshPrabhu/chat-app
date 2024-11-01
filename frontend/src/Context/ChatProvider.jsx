@@ -9,10 +9,13 @@ const ChatProvider = ({ children }) => {
     const [chats, setChats] = useState([])
 
     useEffect(() => {
-        const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-        setUser (userInfo);
-        if (!userInfo) {
-            window.location.href = '/';
+        const storedUser = localStorage.getItem('userInfo');
+        if(storedUser){
+            const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+            setUser (userInfo);
+            if (!userInfo) {
+                window.location.href = '/';
+            }
         }
     }, []); // You can choose to keep navigate here if you want
 

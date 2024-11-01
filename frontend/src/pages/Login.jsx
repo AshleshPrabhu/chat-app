@@ -18,7 +18,7 @@ function Login() {
         setEmail('test@test.com')
         setLoading(false)
     }
-    const handleSubmit=async(e)=>{
+    const handleSubmit = async (e) => {
         e.preventDefault()
         setLoading(true)
         try {
@@ -27,24 +27,18 @@ function Login() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({  email, password}), 
+                body: JSON.stringify({ email, password }), 
             });
-            // console.log("res", await response.json())
             const data = await response.json()
-            if(!response.ok){
-                toast.error("failed to login")
-            }else{
-                toast.success("login success")
-                setLoading(false)
-                localStorage.setItem("userInfo",JSON.stringify(data?.user))
-                navigate('/chats')
-                setEmail(null)
-                setPassword(null)
+            if (!response.ok) {
+                throw new Error(data.message || "Failed to login")
             }
+            toast.success("Login success")
+            localStorage.setItem("userInfo", JSON.stringify(data?.user))
+            navigate('/chats')
         } catch (error) {
-            setLoading(false)
-            toast.error(error?.message||"failed to login")
-        }finally{
+            toast.error(error.message || "Failed to login")
+        } finally {
             setLoading(false)
         }
     }

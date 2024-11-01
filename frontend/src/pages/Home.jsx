@@ -6,16 +6,16 @@ import { useNavigate } from 'react-router-dom'
 function Home() {
   const navigate = useNavigate()
   const[user,setUser]=useState()
-    useEffect(()=>{
-        const user=localStorage.getItem('userInfo')
-        if(user){
-          const userInfo=JSON.parse(localStorage.getItem('userInfo'))
-          setUser(userInfo)
-          if(userInfo){
-              navigate('/chats')
-          }
-        }
-    },[])
+    // useEffect(()=>{
+    //     const user=localStorage.getItem('userInfo')
+    //     if(user){
+    //       const userInfo=JSON.parse(localStorage.getItem('userInfo'))
+    //       setUser(userInfo)
+    //       if(userInfo){
+    //           navigate('/chats')
+    //       }
+    //     }
+    // },[])
   return (
     <div className='w-full min-h-screen flex justify-center items-center bg-black' >
       <div className='rounded-3xl w-[40%]  bg-white'>

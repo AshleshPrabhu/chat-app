@@ -24,12 +24,7 @@ function MyChats() {
         if (!data?.success) {
             toast.error(data?.message||"failed to fetch the chat")
         }else{
-            console.log("hello")
-            console.log("cc",chats)
-            if(!chats[0].find((c)=>c?._id===data?.chats?._id)){ 
-                console.log("a")
-                setChats([...chats,data?.chats])
-            }
+            setChats([data?.chats])
             console.log("c",chats)
             setSelectedChat(data?.chats)
             setLoadingChat(false)
