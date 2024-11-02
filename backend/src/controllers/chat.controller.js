@@ -100,9 +100,9 @@ const createGroupChat=async(req,res)=>{
             return res.status(404).json({
                 success:false,
                 message:"atleast 2 users are required"
-            })
+            }) 
         }
-        Users.push(req.user._id)
+        Users.push(req.user._id.toString())
         const group = await Chat.create({
             chatName:name,
             users:Users,
